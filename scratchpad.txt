@@ -1,0 +1,1 @@
+Event.create(:organizer_name => "", :organizer_email => "fred@smith.com", :title => "marys Birthday", :date => "2013-08-22")
