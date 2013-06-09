@@ -21,6 +21,9 @@ post '/events/create' do
   p params
   event = Event.new(params)
   p event.errors
-  # puts "#{params[:title]}, #{params[:date]}, #{params[:organizer_name]}, #{params[:organizer_email]}"
-  event.errors.to_json
+  if event.errors.size == 0
+    "redirect".to_json
+  else
+    event.errors.to_json
+  end
 end

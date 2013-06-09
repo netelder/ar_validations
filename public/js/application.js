@@ -1,17 +1,21 @@
 $(document).ready(function () {
 
 	$('#eventsubmit').on('click', function(e){
-		e.preventDefault;
+		e.preventDefault();
 		$.ajax({
-			url: '/event/create',
+			url: '/events/create',
 			method: 'post',
 			dataType: 'json',
-			data: $('form').serialize();
+			data: $('form').serialize()
 		}).done(function(data){
-			console.log("returned from ajax call\n");
-			console.log(data);
-		})
-	})
+					console.log(data);
+			if (data[0] == 'redirect') {
+				console.log(data[0]);
+				window.location.href = '/';
+       } else {
+		}
+		});
+	});
 
 //   // send an HTTP DELETE request for the sign-out link
 //   $('a#sign-out').on("click", function (e) {
