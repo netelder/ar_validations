@@ -20,8 +20,8 @@ post '/events/create' do
   #TODO IMPLEMENT ME
   p params
   event = Event.new(params)
-  p event.errors
-  if event.errors.size == 0
+  if event.valid?
+    event.save
     "redirect".to_json
   else
     event.errors.to_json
