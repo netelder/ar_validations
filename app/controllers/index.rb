@@ -17,13 +17,13 @@ end
 
 post '/events/create' do
 	content_type 'json'
-  #TODO IMPLEMENT ME
-  p params
   event = Event.new(params)
   if event.valid?
     event.save
     "redirect".to_json
   else
-    event.errors.to_json
+    @messages = event.errors.messages
+    @content = params
+    erb :new_event
   end
 end

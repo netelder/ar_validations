@@ -8,4 +8,11 @@
 		<input id="eventsubmit" type="submit" value="Submit">
 	</form>
 
-</dev>
+	<% if @messages %>
+		<% @messages.each do |message| %>
+		<p id="error_msg"><%=message%></p>
+		<% end %>
+	<%=@content%>
+	<% end%>	
+
+</div>
