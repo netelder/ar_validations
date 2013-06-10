@@ -6,7 +6,7 @@ helpers do
 
 	def _errors(field)
 		ret_str = ""
-		ret_str += "#{@messages[field].to_s}" if ! @messages.empty?
+		ret_str += "<span class = 'error'>#{@messages[field].join(", ")}</span>" if ! @messages.empty?
 	end
 
 end

@@ -9,6 +9,10 @@
   font-size: 17pt;
 
 }
+.error {
+  color: red;
+  margin-left: 2em;
+}
 
 nav {
   width: 100%;
