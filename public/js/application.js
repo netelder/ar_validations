@@ -1,8 +1,4 @@
-
-
-
-
-$(document).ready(function () {
+$(document).ready(function() {
 
 	$('#eventsubmit').on('click', function(e){
 		e.preventDefault();
@@ -12,12 +8,9 @@ $(document).ready(function () {
 			dataType: 'json',
 			data: $('form').serialize()
 		}).done(function(data){
-			// console.error(data.to_string);
+			console.log(data);
 			if (data[0] === 'r') {
-				window.location = '/';
-			} else {
-				// var p_data = $.parseJSON(data);
-				console.log(data);
+				window.location.replace("/");
 			}
 		});
 	});

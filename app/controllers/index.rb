@@ -1,4 +1,5 @@
 require 'json'
+require 'chronic'
 
 get '/' do
   @events = Event.all
@@ -11,19 +12,22 @@ get '/events/:id/show' do |id|
 end
 
 get '/events/new' do
-  #TODO IMPLEMENT ME
+  @messages = []
+  @content = []
   erb :new_event
 end
 
 post '/events/create' do
-	content_type 'json'
+  params[:date] = Chronic.parse(params[:date])
   event = Event.new(params)
   if event.valid?
     event.save
     "redirect".to_json
   else
-    @messages = event.errors.messages
+    @messages = event.errors.to_a
     @content = params
+    p @content
+    p @messages
     erb :new_event
   end
 end
