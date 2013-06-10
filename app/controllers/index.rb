@@ -22,12 +22,14 @@ post '/events/create' do
   event = Event.new(params)
   if event.valid?
     event.save
-    "redirect".to_json
-  else
-    @messages = event.errors.to_a
-    @content = params
-    p @content
-    p @messages
-    erb :new_event
+    # return "redirect".to_json
+    redirect '/'
   end
+
+  @messages = event.errors
+  @content = params
+  p @content
+  p @messages
+  erb :new_event
+
 end
