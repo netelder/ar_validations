@@ -1,4 +1,6 @@
-<h2><%=@event.organizer_name%> Invites YOU to <%=@event.title%> on
-  <%=@event.date%></h2>
-<p>RSVP to <a href="mailto:
+<div class="invitation">
+<p class="invite"><%=@event.organizer_name%> <br>Invites YOU to <br><%=@event.title%> <br>on
+  <%=@event.date%></p>
+<p class="rsvp">RSVP to <br><a href="mailto:
   <%=@event.organizer_email%>"><%=@event.organizer_email%></a></p>
+</div>
