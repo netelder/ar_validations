@@ -1,8 +1,9 @@
 helpers do
 	def _pre_fill(field)
-		p @content[field]
-		ret_str = ""
-		ret_str += "value= #{@content[field]}" if !@content.empty?
+		if !@content.empty?
+  		ret_str = ""
+  		ret_str += "value= \"#{@content[field]}\""
+		end 
 	end
 
 	def _errors(field)
